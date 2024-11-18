@@ -1,0 +1,97 @@
+:root {
+  --background-color: #f5f5f5;
+  --text-color: #222222;
+  --primary-accent: #0d6efd;
+  --secondary-accent: #cccccc;
+  --border-color: #e0e0e0;
+  --highlight-color: #0056b3;
+}
+
+.dark-mode {
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --primary-accent: #007bff;
+  --secondary-accent: #3a3a3a;
+  --border-color: #292929;
+  --highlight-color: #0056b3;
+}
+
+#signupicon {
+  max-width: 95%;
+}
+
+.signupform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  padding: 1%;
+  width: 80%;
+}
+
+.role-label {
+  width: 30%;
+  padding: 10px 0;
+}
+
+.signup-container .left-col {
+  text-align: center;
+}
+
+.signup-container .right-col {
+  display: flex;
+  justify-content: center;
+}
+
+.names-col {
+  padding: 0;
+}
+
+.names-col:first-of-type {
+  padding-right: 5px;
+}
+
+.names-col:last-of-type {
+  padding-left: 5px;
+}
+
+.role-row {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-around;
+}
+
+.signupform input[type="radio"] {
+  display: none;
+}
+
+.submit-button {
+  margin-top: 15px;
+  padding: 10px 0;
+}
+
+body {
+  height: 100vh;
+}
+
+.password-auth-container,
+.password-match-auth-container {
+  background-color: var(--border-color);
+  margin: 15px 0;
+  display: none;
+}
+
+.password-auth-container p,
+.password-match-auth-container p {
+  padding: 0;
+  margin: 5px 0;
+  transition: all 0.1s ease-in-out;
+}
+
+.password-auth-inactive {
+  color: red;
+}
+
+.password-auth-active {
+  color: green;
+}

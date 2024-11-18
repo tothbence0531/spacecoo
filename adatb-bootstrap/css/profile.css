@@ -1,0 +1,111 @@
+:root {
+  --background-color: #f5f5f5;
+  --text-color: #222222;
+  --primary-accent: #0d6efd;
+  --secondary-accent: #cccccc;
+  --border-color: #e0e0e0;
+  --highlight-color: #0056b3;
+}
+
+.dark-mode {
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --primary-accent: #007bff;
+  --secondary-accent: #3a3a3a;
+  --border-color: #292929;
+  --highlight-color: #0056b3;
+}
+
+.profpic {
+  color: #f5f5f5;
+  margin: 0;
+  background-color: var(--primary-accent);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  min-width: 50px;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.accordion-header button {
+  background-color: var(--secondary-accent);
+  color: var(--text-color);
+}
+
+.accordion-header button {
+  background-color: var(--secondary-accent);
+  color: var(--text-color);
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--primary-accent);
+  color: #f5f5f5;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-body {
+  background-color: var(--border-color);
+  padding: 2%;
+  margin: 0;
+}
+
+.altalanos-container .name-col,
+.altalanos-container .email-col,
+.altalanos-container .tel-col,
+.altalanos-container .submit-col {
+  padding: 0 1%;
+}
+
+.altalanos-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.new-password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0 10px;
+}
+
+.password-auth-container,
+.password-match-auth-container {
+  background-color: var(--border-color);
+  margin: 15px 0;
+  display: none;
+}
+
+.password-auth-container p,
+.password-match-auth-container p {
+  padding: 0;
+  margin: 5px 0;
+  transition: all 0.1s ease-in-out;
+}
+
+.password-auth-inactive {
+  color: red;
+}
+
+.password-auth-active {
+  color: green;
+}
+
+/* DELETE ACCOUNT MODAL */
+
+#deleteAccountModal {
+  z-index: 10000000000 !important;
+}
+
+#deleteAccountModal .modal-footer,
+#deleteAccountModal .modal-header,
+#deleteAccountModal .modal-body {
+  background-color: var(--background-color);
+}
