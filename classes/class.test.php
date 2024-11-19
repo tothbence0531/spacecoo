@@ -1,6 +1,20 @@
 <?php
 
 class Test extends Dbh {
+
+  protected function getAllTests($testOwner) {
+    $stmt = $this->connect()->prepare('SELECT * FROM tests WHERE `owner` = ?');
+
+    if (!$stmt->execute(array($testOwner))) {
+      $stmt = NULL;
+      header('location: ../index.php?error=stmtfailed');
+      exit();
+    }
+
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+  }
+
   protected function addTest($testName, $testMinScore, $testOwner) {
 
     $conn = $this->connect();

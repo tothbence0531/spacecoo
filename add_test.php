@@ -96,8 +96,7 @@ include('includes/header.php');
   </div>
 </div>
 
-<h1>Teszt hozzáadása</h1>
-
+<h1>Teszt szerkesztése</h1>
 
   <div class="row">
     <div class="col">
@@ -111,6 +110,8 @@ include('includes/header.php');
   </div>
 
 <!-- vvvvvvvvvvvvv i should format and doc this asap vvvvvvvvvvvvvvv -->
+
+<h1 class="mt-4">Kérdések:</h1>
 
 <?php if (empty($questions)) { ?>
   <div class="row mt-3">
@@ -135,7 +136,7 @@ include('includes/header.php');
         $questionsAssoc[$row['q_id']]['wrong_answers'][] = $row['wrong_answer'];
     }
   } ?>
-<div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mt-4">
+<div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mt-2">
   <?php foreach ($questionsAssoc as $q_id => $question) { ?>
     <div class="col">
     <div class="card">

@@ -179,28 +179,31 @@ if(isset($_SESSION["userEmail"]) !== true) {
                 </li>
                 <li class="navlink">
                     <a href="#">
-                        <i class='bx bx-list-check navicon' ></i>
-                        <span class="text">Kitöltött tesztek</span>
+                        <i class='bx bx-task navicon' ></i>
+                        <span class="text">Elérhető tesztek</span>
                     </a>
                 </li>
                 <li class="navlink">
                     <a href="#">
-                        <i class='bx bx-list-ul navicon' ></i>
-                        <span class="text">Elérhető tesztek</span>
+                        <i class='bx bx-line-chart navicon'></i>
+                        <span class="text">Eredmények</span>
                     </a>
                 </li>
+                <?php if (isset($_SESSION["roleId"]) && $_SESSION["roleId"] === 1) {?>
                 <li class="navlink">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#addTestModal">
                         <i class='bx bx-list-plus navicon' ></i>
                         <span class="text">Teszt létrehozása</span>
                     </a>
                 </li>
+                <?php } ?>
                 <li class="navlink">
-                    <a href="#">
-                        <i class='bx bx-line-chart navicon'></i>
+                    <a href="tests.php">
+                        <i class='bx bx-list-ul navicon' ></i>
                         <span class="text">Saját tesztek</span>
                     </a>
                 </li>
+                
             </ul>
         </div>
         </section>

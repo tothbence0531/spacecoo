@@ -14,17 +14,20 @@ class TestController extends Test {
   }
 
   /**
-   * Second constructor with option to pass questions in an array straight into the instance
-   * NOTE: to call use TestController::withQuestions(params)
+   * Second constructor with option to pass only testOwner and nothing else
+   * NOTE: to call use TestController::constructWithOwnerOnly(params)
    */
-  public static function withQuestions($testName, $testMinScore, $testOwner, $questionArray) {
-    $instance = new self($testName, $testMinScore, $testOwner);
-    $instance->questionList = $questionArray;
+  public static function constructWithOwnerOnly($testOwner) {
+    $instance = new self(null, null, $testOwner);
     
     return $instance;
   }
   
   public function addTestWithoutQuestions() {
     return $this->addTest($this->testName, $this->testMinScore, $this->testOwner);
+  }
+
+  public function getAllTestsByOwner() {
+    return $this->getAllTests($this->testOwner);
   }
 }
