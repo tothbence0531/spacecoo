@@ -9,12 +9,12 @@ class Test extends Dbh {
 
     if(!$stmt->execute(array($testOwner))) {
         $stmt = NULL;
-        header('location: ../add_test.php?error=stmtfailed');
+        header('location: ../index.php?error=stmtfailed');
         exit();
     }
 
     if($stmt->rowCount() == 0) {
-      header('location: ../add_test.php?error=stmtfailed');
+      header('location: ../index.php?error=stmtfailed');
       exit();
     }
 
@@ -22,7 +22,7 @@ class Test extends Dbh {
 
     if(!$stmt->execute(array($testName, $testMinScore, $testOwner))) {
         $stmt = NULL;
-        header('location: ../add_test.php?error=stmtfailed');
+        header('location: ../index.php?error=stmtfailed');
         exit();
     }
 

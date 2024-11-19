@@ -5,6 +5,8 @@
   --secondary-accent: #cccccc;
   --border-color: #e0e0e0;
   --highlight-color: #0056b3;
+  --correct-color: green;
+  --incorrect-color: red;
 }
 
 .dark-mode {
@@ -14,6 +16,8 @@
   --secondary-accent: #3a3a3a;
   --border-color: #292929;
   --highlight-color: #0056b3;
+  --correct-color: green;
+  --incorrect-color: red;
 }
 
 * {
@@ -328,6 +332,21 @@ h1 {
   background-color: #fff;
   animation: loader-inner 2s infinite ease-in;
   z-index: 999999999999 !important;
+}
+
+/* GENERAL UI ELEMENTS */
+
+.description {
+  font-style: italic;
+  color: rgb(148, 148, 148);
+}
+
+.correct-color {
+  color: var(--correct-color) !important;
+}
+
+.incorrect-color {
+  color: var(--incorrect-color) !important;
 }
 
 @keyframes loader {
