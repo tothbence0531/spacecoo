@@ -51,7 +51,7 @@ include("includes/header.php");
             
             <label class="form-check-label test-question-label" for="question_<?php echo $q_id ?> answer_default">
               <input type="radio" class="form-check-input" name="question_<?php echo $q_id ?>" id="question_<?php echo $q_id ?> answer_default" value="" required checked>
-              Nincs válaszs
+              Nincs válasz
             </label>
           </div>
         </div>
