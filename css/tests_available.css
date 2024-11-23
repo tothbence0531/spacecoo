@@ -1,0 +1,8 @@
+.test-submitted-icon {
+  color: var(--background-color);
+  font-size: 2rem;
+}
+
+.test-submitted-icon-container {
+  text-align: right;
+}

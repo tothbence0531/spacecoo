@@ -74,5 +74,6 @@
     <script src="js/sidebar.js"></script>
     <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.js"></script>
     <script src="js/toast.js"></script>
+    <script src="js/tooltip.js"></script>
 </body>
 </html>

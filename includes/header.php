@@ -177,6 +177,7 @@ if(isset($_SESSION["userEmail"]) !== true) {
                         <span class="text">Főoldal</span>
                     </a>
                 </li>
+                <?php if (isset($_SESSION["roleId"])) {?>
                 <li class="navlink">
                     <a href="tests_available.php">
                         <i class='bx bx-task navicon' ></i>
@@ -189,6 +190,7 @@ if(isset($_SESSION["userEmail"]) !== true) {
                         <span class="text">Eredmények</span>
                     </a>
                 </li>
+                <?php } ?>
                 <?php if (isset($_SESSION["roleId"]) && $_SESSION["roleId"] === 1) {?>
                 <li class="navlink">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#addTestModal">

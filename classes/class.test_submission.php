@@ -34,11 +34,25 @@ class TestSubmission extends Dbh {
 
       $conn->commit();
 
-  } catch (Exception $e) {
-    $conn->rollBack();
-    header("location: ../index.php?error=stmtfailed");
-    exit();
+    } catch (Exception $e) {
+      $conn->rollBack();
+      header("location: ../index.php?error=stmtfailed");
+      exit();
+    }
+
   }
+
+  protected function getSubmissionsByUserAndTest($userId, $testId) {
+    $stmt = $this->connect()->prepare("SELECT * FROM `test_submission` WHERE `owner` = ? AND `tid` = ? ORDER BY score DESC");
+    if (!$stmt->execute(array($userId, $testId))) {
+      $stmt = NULL;
+      header("location: ../index.php?stmtfailed");
+      exit();
+    }
+
+    $submissions = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $submissions;
 
   }
 
