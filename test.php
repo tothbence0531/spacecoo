@@ -3,8 +3,8 @@
 // INFO: session handling, if not admin, gets redirected to index
 session_start();
 
-if (!isset($_SESSION["userEmail"]) || !isset($_GET["id"])) {
-  header("location: index.php");
+if (!isset($_POST["open-test"]) || !isset($_SESSION["userEmail"])) {
+  header("location: index.php?unauthorized");
 }
 
 include("classes/class.dbh.php");
@@ -15,9 +15,9 @@ include("classes/class.questions.php");
 include("classes/class.controller.questions.php");
 
 $testController = TestController::constructDefault();
-$test = $testController->getTestById($_GET["id"]);
+$test = $testController->getTestById($_POST["testid"]);
 
-$questionsController = QuestionsController::constructWithTestIdOnly($_GET["id"]);
+$questionsController = QuestionsController::constructWithTestIdOnly($_POST["testid"]);
 $questions = $questionsController->getAllQuestionsByTestId();
 
 $questionCounter = 1;

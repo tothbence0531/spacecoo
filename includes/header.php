@@ -178,7 +178,7 @@ if(isset($_SESSION["userEmail"]) !== true) {
                     </a>
                 </li>
                 <li class="navlink">
-                    <a href="#">
+                    <a href="tests_available.php">
                         <i class='bx bx-task navicon' ></i>
                         <span class="text">Elérhető tesztek</span>
                     </a>

@@ -1,20 +1,24 @@
 <?php 
 
+session_start();
+
 include('classes/class.dbh.php');
 include('classes/class.test.php');
 include('classes/class.controller.test.php');
 
-$limitedTestController = TestController::constructWithLimit(3);
-$tests = $limitedTestController->getLimitedAmountOfTests();
+$testController = TestController::constructDefault();
+$tests = $testController->getAllTests();
 
 include('includes/header.php');
+
 ?>
 
+<h1>Elérhető tesztek</h1>
 
-<div class="container-fluid">
-    <h1>Főoldal</h1>
-    <div class="row">
-        <?php foreach($tests as $test) { ?>
+
+<div class="row">
+        <?php 
+        if (count($tests) > 0) { foreach($tests as $test) { ?>
         <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="card">
             <div class="card-body">
@@ -29,20 +33,10 @@ include('includes/header.php');
             </div>
             </div>
         </div>
+        <?php }} else {?>
+          <p class="description mb-5 pb-5">Jelenleg nincsenek kitölthető tesztek</p>
         <?php } ?>
     </div>
 
-    <div class="row searchrow">
-        <input class="col-10" placeholder="Tesztek keresése" type="text" name="searchbar" id="searchbar">
-        <button class="col-2 search-submit" type="submit">
-            <i class='searchicon bx bx-search'></i>
-        </button>
-    </div>
-</div>
 
-
-
-
-<?php 
-include('includes/footer.php');
-?>
+<?php include('includes/footer.php') ?>

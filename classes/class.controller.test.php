@@ -54,5 +54,9 @@ class TestController extends Test {
   public function getLimitedAmountOfTests() {
     return $this->getCustomAmountOfTests($this->limitAmount);
   }
+
+  public function getAllTests() {
+    return $this->getTests();
+  }
  
 }

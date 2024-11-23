@@ -15,7 +15,7 @@ class Test extends Dbh {
     return $result;
   }
 
-  protected function getAllTests() {
+  protected function getTests() {
     $stmt = $this->connect()->prepare('SELECT * FROM tests');
 
     if (!$stmt->execute()) {

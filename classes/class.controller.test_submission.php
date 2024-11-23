@@ -12,8 +12,8 @@ class TestSubmissionController extends TestSubmission {
     $this->score = $score;
   }
 
-  public function submitTest() {
-    $this->setTestSubmission($this->owner, $this->testId, $this->score);
+  public function submitTest($questions, $responses) {
+    $this->setTestSubmission($this->owner, $this->testId, $this->score, $questions, $responses);
   }
   
 }

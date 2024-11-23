@@ -74,8 +74,8 @@ class Questions extends Dbh {
       return $results;
 
     } catch (Exception $e) {
-      echo $e;
-      //header("location: ../index.php?stmtfailed");
+      header("location: ../index.php?stmtfailed");
+      exit();
     }
     
   }

@@ -32,7 +32,7 @@ if (isset($_POST["submit_test"])) {
   }
 
   $testSubmissionController = new TestSubmissionController($_SESSION["userEmail"], $_POST["tid"], $score);
-  $testSubmissionController->submitTest();
+  $testSubmissionController->submitTest($questions, $responses);
 
   header("location: ../index.php?error=none");
 
