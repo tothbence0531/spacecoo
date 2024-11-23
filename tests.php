@@ -23,7 +23,7 @@ include("includes/header.php");
 <h1>Saját tesztek kezelése</h1>
 <div class="container-fluid">
   <?php foreach ($tests as $test) { ?>
-    <a class="test-container" href="/add_test.php?test=<?php echo $test["tid"] ?>" class="col">
+    <a class="test-container" href="add_test.php?test=<?php echo $test["tid"] ?>" class="col">
       <div class="row">
       <div class="test-row row">
         <p class="test-name col"><?php echo $test["t_name"] ?></p>

@@ -12,7 +12,7 @@ include('classes/class.dbh.php');
 include('classes/class.test.php');
 
 $testDAO = new Test();
-$test = $testDAO->getTestById($_GET["test"])[0];
+$test = $testDAO->getTestById($_GET["test"]);
 
 // INFO: getting questions to display
 include('classes/class.questions.php');
@@ -108,8 +108,8 @@ include('includes/header.php');
       <input id="disabled-test-min" class="form-control" type="number" placeholder="<?php echo $test['min_score'] ?>" disabled>
     </div>
   </div>
-
-<!-- vvvvvvvvvvvvv i should format and doc this asap vvvvvvvvvvvvvvv -->
+<!-- IIIIIIIIIIIII                                   IIIIIIIIIIIIIII -->
+<!-- VVVVVVVVVVVVV i should format and doc this asap VVVVVVVVVVVVVVV -->
 
 <h1 class="mt-4">Kérdések:</h1>
 
@@ -119,25 +119,8 @@ include('includes/header.php');
   </div>
 <?php } else {?>
 
-  <?php
-  
-  $questionsAssoc = [];
-
-  foreach ($questions as $row) {
-    if (!isset($questionsAssoc[$row['q_id']])) {
-        $questionsAssoc[$row['q_id']] = [
-            'q_body' => $row['q_body'],
-            'correct_answer' => $row['correct_answer'],
-            'wrong_answers' => []
-        ];
-    }
-
-    if (!empty($row['wrong_answer'])) {
-        $questionsAssoc[$row['q_id']]['wrong_answers'][] = $row['wrong_answer'];
-    }
-  } ?>
 <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mt-2">
-  <?php foreach ($questionsAssoc as $q_id => $question) { ?>
+  <?php foreach ($questions as $q_id => $question) { ?>
     <div class="col">
     <div class="card">
       <div class="card-body">

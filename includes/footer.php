@@ -43,7 +43,7 @@
             <div class="col-md-4 mb-3 links">
                 <h5 class="text-uppercase">Gyors Linkek</h5>
                 <ul class="list-unstyled">
-                    <li><a href="../index.php">Főoldal</a></li>
+                    <li><a href="index.php">Főoldal</a></li>
                     <li><a href="#">Rólunk</a></li>
                     <li><a href="#">Általános szerződési feltételek</a></li>
                     <li><a href="#">Felhasználói feltételek</a></li>
@@ -72,7 +72,7 @@
 </footer>
     
     <script src="js/sidebar.js"></script>
-    <script src="../bootstrap-5.3.3-dist/js/bootstrap.bundle.js"></script>
-    <script src="../js/toast.js"></script>
+    <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.js"></script>
+    <script src="js/toast.js"></script>
 </body>
 </html>

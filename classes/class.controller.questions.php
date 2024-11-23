@@ -29,7 +29,26 @@ class QuestionsController extends Questions {
   }
 
   public function getAllQuestionsByTestId() {
-    return $this->getQuestions($this->testId);
+
+    $questions = $this->getQuestions($this->testId);
+
+    $questionsAssoc = [];
+
+    foreach ($questions as $row) {
+      if (!isset($questionsAssoc[$row['q_id']])) {
+          $questionsAssoc[$row['q_id']] = [
+              'q_body' => $row['q_body'],
+              'correct_answer' => $row['correct_answer'],
+              'wrong_answers' => []
+          ];
+      }
+  
+      if (!empty($row['wrong_answer'])) {
+          $questionsAssoc[$row['q_id']]['wrong_answers'][] = $row['wrong_answer'];
+      }
+    }
+
+    return $questionsAssoc;
   }
 
 }

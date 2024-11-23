@@ -1,0 +1,32 @@
+.test-question-label {
+  background-color: var(--secondary-accent);
+  padding: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+.test-question-label:hover,
+.test-question-label:hover input[type="radio"] {
+  background-color: var(--border-color);
+  transition: all 0.1s ease-in-out;
+}
+
+label.test-question-label:has(input[type="radio"]:checked) {
+  background-color: var(--highlight-color);
+  color: #f3f3f3;
+  transition: all 0.1s ease-in-out;
+}
+
+.form-check-input {
+  background-color: var(--secondary-accent);
+}
+
+.form-check-input:checked {
+  background-color: #acacac;
+}
+
+h4 {
+  margin-top: 2rem;
+}

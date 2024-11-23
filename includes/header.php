@@ -12,13 +12,13 @@ if(isset($_SESSION["userEmail"]) !== true) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
 
-    <link rel="stylesheet" href="./bootstrap-5.3.3-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="../js/loader.js"></script>
+    <script src="js/loader.js"></script>
     
 
     <meta charset="UTF-8">
@@ -149,7 +149,7 @@ if(isset($_SESSION["userEmail"]) !== true) {
         <div class="sidebarHeader">
             
             <a href="<?php 
-                    if(isset($_SESSION["userEmail"])) echo "../profile.php";
+                    if(isset($_SESSION["userEmail"])) echo "profile.php";
                     else echo "#"
                 ?>">
                 <p class="profpic"><?php 
@@ -172,7 +172,7 @@ if(isset($_SESSION["userEmail"]) !== true) {
         <div class="container-fluid">
             <ul class="nav">
             <li class="navlink">
-                    <a href="../index.php">
+                    <a href="index.php">
                         <i class='bx bx-home navicon' ></i>
                         <span class="text">Főoldal</span>
                     </a>
@@ -196,14 +196,14 @@ if(isset($_SESSION["userEmail"]) !== true) {
                         <span class="text">Teszt létrehozása</span>
                     </a>
                 </li>
-                <?php } ?>
+                
                 <li class="navlink">
                     <a href="tests.php">
                         <i class='bx bx-list-ul navicon' ></i>
                         <span class="text">Saját tesztek</span>
                     </a>
                 </li>
-                
+                <?php } ?>
             </ul>
         </div>
         </section>
@@ -222,7 +222,7 @@ if(isset($_SESSION["userEmail"]) !== true) {
                     } else {
                         echo '
                         <li class="navlink">
-                            <form action="../includes/include.logout.php" method="post" id="logoutForm">
+                            <form action="includes/include.logout.php" method="post" id="logoutForm">
                                 <input type="hidden" name="logout" value="1">
                                 <a href="javascript:{}" onclick="document.getElementById(\'logoutForm\').submit();">
                                     <i class="bx bx-log-out navicon"></i>

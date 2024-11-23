@@ -1,4 +1,12 @@
 <?php 
+
+include('classes/class.dbh.php');
+include('classes/class.test.php');
+include('classes/class.controller.test.php');
+
+$limitedTestController = TestController::constructWithLimit(3);
+$tests = $limitedTestController->getLimitedAmountOfTests();
+
 include('includes/header.php');
 ?>
 
@@ -6,39 +14,19 @@ include('includes/header.php');
 <div class="container-fluid">
     <h1>Főoldal</h1>
     <div class="row">
+        <?php foreach($tests as $test) { ?>
         <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Random kemia teszt</h5>
-                <p >Keszitette: A kurva anyad</p>
-                <p >Ekkor: fasszopo</p>
-                <p >Minimális pontszám: gecifasz69</p>
-                <a href="#" class="btn btn-primary">Kitöltés</a>
+                <h5 class="card-title"><?php echo $test['t_name'] ?></h5>
+                <p >Keszitette: <?php echo $test['owner'] ?></p>
+                <p >Ekkor: <?php echo $test['date'] ?></p>
+                <p >Minimális pontszám: <?php echo $test['min_score'] ?></p>
+                <a href="test.php?id=<?php echo $test["tid"] ?>" class="btn btn-primary">Kitöltés</a>
             </div>
             </div>
         </div>
-        <div class="col-sm-12 col-md-6 col-lg-4">
-            <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Fos demonstracios szargecikurva</h5>
-                <p >Keszitette: A kurva anyad</p>
-                <p >Ekkor: fasszopo</p>
-                <p >Minimális pontszám: gecifasz69</p>
-                <a href="#" class="btn btn-primary">Kitöltés</a>
-            </div>
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-4">
-            <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Dikaz</h5>
-                <p >Keszitette: A kurva anyad</p>
-                <p >Ekkor: fasszopo</p>
-                <p >Minimális pontszám: gecifasz69</p>
-                <a href="#" class="btn btn-primary">Kitöltés</a>
-            </div>
-            </div>
-        </div>
+        <?php } ?>
     </div>
 
     <div class="row searchrow">
