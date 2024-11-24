@@ -349,6 +349,14 @@ h1 {
   color: var(--incorrect-color) !important;
 }
 
+.correct-background-color {
+  background-color: var(--correct-color) !important;
+}
+
+.incorrect-background-color {
+  background-color: var(--incorrect-color) !important;
+}
+
 @keyframes loader {
   0% {
     transform: rotate(0deg);

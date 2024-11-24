@@ -56,4 +56,34 @@ class TestSubmission extends Dbh {
 
   }
 
+  protected function getTestsSubmittedByUser($userId) {
+    $stmt = $this->connect()->prepare(
+      "SELECT tests.tid, tests.t_name, tests.date, tests.min_score, tests.owner FROM tests JOIN  test_submission ON tests.tid = test_submission.tid WHERE test_submission.owner = ? GROUP BY tests.t_name;");
+
+    if (!$stmt->execute(array($userId))) {
+      $stmt = NULL;
+      header("location: ../index.php?stmtfailed");
+      exit();
+    }
+
+    $tests = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $tests;
+
+  }
+
+  protected function getTestIdBySubmissionId($submissionId) {
+    $stmt = $this->connect()->prepare("SELECT `tid` FROM `test_submission` WHERE `sub_id` = ?");
+
+    if(!$stmt->execute(array($submissionId))) {
+      $stmt = NULL;
+      header("location: ../index.php?stmtfailed");
+      exit();
+    }
+
+    $testId = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $testId;
+
+  }
+
 }

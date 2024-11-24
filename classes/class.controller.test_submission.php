@@ -30,8 +30,20 @@ class TestSubmissionController extends TestSubmission {
     return count($this->getSubmissionsByUserAndTest($userEmail, $testId)) > 0;
   }
 
+  public function testPassedByUser($userEmail, $testId, $minScore) {
+    return $this->getSubmissionsByUserAndTestId($userEmail, $testId)[0]["score"] >= $minScore;
+  }
+
   public function getSubmissionsByUserAndTestId($userEmail, $testId) {
     return $this->getSubmissionsByUserAndTest($userEmail, $testId);
+  }
+
+  public function getTestsSubmittedByUserId($userEmail) {
+    return $this->getTestsSubmittedByUser($userEmail);
+  }
+
+  public function getTestId($sub_id) {
+    return $this->getTestIdBySubmissionId($sub_id)[0]['tid'];
   }
   
 }

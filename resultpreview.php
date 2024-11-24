@@ -3,21 +3,32 @@
 // INFO: session handling, if not user, gets redirected to index
 session_start();
 
-if (!isset($_POST["open-test"]) || !isset($_SESSION["userEmail"])) {
+if (!isset($_SESSION["userEmail"])) {
   header("location: index.php?error=unauthorized");
 }
 
 include("classes/class.dbh.php");
+
+include("classes/class.test_submission.php");
+include("classes/class.controller.test_submission.php");
+
 include("classes/class.test.php");
 include("classes/class.controller.test.php");
 
 include("classes/class.questions.php");
 include("classes/class.controller.questions.php");
 
-$testController = TestController::constructDefault();
-$test = $testController->getTestById($_POST["testid"]);
+include("classes/class.answers.php");
+include("classes/class.controller.answers.php");
 
-$questionsController = QuestionsController::constructWithTestIdOnly($_POST["testid"]);
+$testSubmissionsController = TestSubmissionController::constructDefault();
+
+$testId = $testSubmissionsController->getTestId($_GET["id"]);
+
+$testController = TestController::constructDefault();
+$test = $testController->getTestById($testId);
+
+$questionsController = QuestionsController::constructWithTestIdOnly($testId);
 $questions = $questionsController->getAllQuestionsByTestId();
 
 $questionCounter = 1;
@@ -28,11 +39,14 @@ include("includes/header.php");
 
 <link rel="stylesheet" href="css/test.css">
 
-<h1><?php echo $test["t_name"]?> kitöltése</h1>
+<h1><?php echo $test["t_name"]?> eredményei</h1>
 
-<form action="includes/include.test_submission.php" method="post">
+<div>
 <?php 
   foreach ($questions as $q_id => $question) {
+
+    $answersController = new AnswersController($_GET["id"], $q_id);
+    $usersAnswers = $answersController->getAnswer();
 
     $answers = [$question["correct_answer"]];
     
@@ -49,8 +63,12 @@ include("includes/header.php");
         <div class="row">
           <div class="col">
             
-            <label class="form-check-label test-question-label" for="question_<?php echo $q_id ?> answer_default">
-              <input type="radio" class="form-check-input" name="question_<?php echo $q_id ?>" id="question_<?php echo $q_id ?> answer_default" value="" required checked>
+          <label class="form-check-label test-question-label <?php 
+
+              if("" === $usersAnswers["answer_given"] && $usersAnswers["is_correct"] ) echo "correct-background-color";
+              else if("" === $usersAnswers["answer_given"] && !$usersAnswers["is_correct"] ) echo "incorrect-background-color";
+
+              ?>">
               Nincs válasz
             </label>
           </div>
@@ -59,8 +77,12 @@ include("includes/header.php");
       <?php for ($i = 0; $i < count($answers); $i++) { ?>
         <div class="row">
           <div class="col">
-            <label class="form-check-label test-question-label" for="question_<?php echo $q_id ?> answer_<?php echo $i ?>">
-              <input type="radio" class="form-check-input" name="question_<?php echo $q_id ?>" id="question_<?php echo $q_id ?> answer_<?php echo $i ?>" value="<?php echo htmlspecialchars($answers[$i]); ?>" required>
+            <label class="form-check-label test-question-label <?php 
+
+            if($answers[$i] === $usersAnswers["answer_given"] && $usersAnswers["is_correct"] ) echo "correct-background-color";
+            else if($answers[$i] === $usersAnswers["answer_given"] && !$usersAnswers["is_correct"] ) echo "incorrect-background-color";
+
+            ?>">
               <?php echo $answers[$i] ?>
             </label>
           </div>
@@ -69,9 +91,6 @@ include("includes/header.php");
   
   <?php }
   ?>
-  <input type="hidden" name="tid" value="<?php echo $test["tid"] ?>">
-  <input type="submit" class="mt-4 btn btn-primary" value="Beadás" name="submit_test">
-</form>
   
-
+  </div>
 <?php include("includes/footer.php"); ?>

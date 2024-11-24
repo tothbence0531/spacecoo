@@ -185,7 +185,7 @@ if(isset($_SESSION["userEmail"]) !== true) {
                     </a>
                 </li>
                 <li class="navlink">
-                    <a href="#">
+                    <a href="results.php">
                         <i class='bx bx-line-chart navicon'></i>
                         <span class="text">Eredmények</span>
                     </a>
