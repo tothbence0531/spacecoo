@@ -58,5 +58,9 @@ class TestController extends Test {
   public function getAllTests() {
     return $this->getTests();
   }
+
+  public function getTestsForSearch($input) {
+    return $this->getTestsLikeParam($input);
+  }
  
 }

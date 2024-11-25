@@ -3,7 +3,7 @@
 session_start();
 
 if(!isset($_SESSION["userEmail"])) {
-    header("location: index.php?error=none");
+    header("location: index.php?error=unauthorized");
 }
 include('includes/header.php');
 
@@ -22,7 +22,7 @@ include('includes/header.php');
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mégse</button>
-        <form action="/includes/include.deleteAccount.php" method="post">
+        <form action="includes/include.deleteAccount.php" method="post">
             <input name="deleteAccountSubmit" type="submit" value="Fiók végleges törlése" class="btn btn-danger">
         </form>
       </div>
@@ -44,7 +44,7 @@ include('includes/header.php');
         </h2>
         <div id="flush-collapseOne" class="show accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
-                <form class="altalanos-container container-fluid" action="/includes/include.profile.php" method="post">
+                <form class="altalanos-container container-fluid" action="includes/include.profile.php" method="post">
                     
                     <div class="row">
                         <div class="name-col col-6">
@@ -77,7 +77,7 @@ include('includes/header.php');
         </h2>
         <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body container-fluid">
-                <form class="new-password-form" action="/includes/include.profile.php" method="post">
+                <form class="new-password-form" action="includes/include.profile.php" method="post">
                     <div class="row">
                         <div class="col-12">
                             <label for="oldPassword">Régi jelszó</label>

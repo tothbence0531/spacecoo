@@ -23,7 +23,7 @@ class TestSubmission extends Dbh {
 
       $conn->beginTransaction();
     
-      $stmt = $conn->prepare("INSERT INTO `test_submission` (`owner`, `tid`, `score`) VALUES (?, ?, ?)");
+      $stmt = $conn->prepare("INSERT INTO `test_submission` (`owner`, `tid`, `score`, `date`) VALUES (?, ?, ?, NOW())");
       $stmt->execute(array($owner, $testId, $score));
       $sub_id = $conn->lastInsertId();
 

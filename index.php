@@ -33,11 +33,14 @@ include('includes/header.php');
     </div>
 
     <div class="row searchrow">
-        <input class="col-10" placeholder="Tesztek keresése" type="text" name="searchbar" id="searchbar">
-        <button class="col-2 search-submit" type="submit">
-            <i class='searchicon bx bx-search'></i>
-        </button>
+        <input class="col" placeholder="Tesztek keresése" type="text" name="searchbar" id="searchbar">
     </div>
+
+    <div class="row searchrow">
+        <div id="searchresults"></div>
+    </div>
+
+    
 </div>
 
 

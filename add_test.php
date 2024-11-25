@@ -2,8 +2,14 @@
 // INFO: session handling, if not admin, gets redirected to index
 session_start();
 
-if (!isset($_SESSION["userEmail"]) || $_SESSION["roleId"] !== 1 || !isset($_GET["test"])) {
-  header("location: index.php");
+if (!isset($_SESSION["userEmail"]) || $_SESSION["roleId"] !== 1) {
+  header("location: index.php?error=unauthorized");
+  exit();
+}
+
+if (!isset($_GET["test"])) {
+  header("location: index.php?error=missingparams");
+  exit();
 }
 
 // INFO: handling test variables to display

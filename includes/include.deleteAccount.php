@@ -14,8 +14,9 @@ if (isset($_POST["deleteAccountSubmit"])) {
   $logout->logoutUser();
   
   include("../classes/class.deleteAccount.php");
+  include("../classes/class.controller.deleteAccount.php");
 
-  $deleteAccount = new DeleteAccount($email);
+  $deleteAccount = new DeleteAccountController($email);
 
   $deleteAccount->deleteUserAccount();
 

@@ -35,6 +35,80 @@ body {
   padding-left: 120px;
   transition: all 0.2s ease-in-out;
 }
+
+/* SEARCH */
+
+#searchbar {
+  background-color: var(--text-color);
+  color: var(--background-color);
+  outline: none;
+  border: 0;
+  padding: 10px 20px;
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  transition: all 0.1s ease-in-out;
+}
+
+.searchrow {
+  display: flex;
+  justify-content: center;
+  padding: 5px 10px;
+  transition: all 0.1s ease-in-out;
+}
+
+.search-submit:hover {
+  background-color: var(--border-color);
+}
+
+.search-submit:hover .searchicon {
+  color: var(--text-color);
+}
+
+.search-submit:active {
+  background-color: var(--highlight-color);
+}
+
+.search-submit:active .searchicon {
+  color: var(--text-color);
+}
+
+.searchicon {
+  color: var(--background-color);
+  font-size: 20px;
+}
+
+#searchresults {
+  display: none;
+  background-color: var(--text-color);
+  position: relative;
+  top: -17px;
+  border: 2px solid var(--border-color);
+  border-radius: 0 0 10px 10px;
+  transition: all 0.1s ease-in-out;
+  padding: 0;
+  height: 300px;
+  overflow-x: auto;
+}
+
+#open-test-form a,
+#open-test-form {
+  width: 100%;
+}
+
+#open-test-form a {
+  padding: 1rem 0.5rem;
+  text-decoration: none;
+  display: block;
+  color: var(--background-color);
+  transition: all 0.1s ease-in-out;
+}
+
+#open-test-form a:hover {
+  background-color: var(--highlight-color);
+  color: #f3f3f3;
+  transition: all 0.1s ease-in-out;
+}
+
 /* login modal */
 .modal {
   z-index: 10000000000 !important;
@@ -249,57 +323,6 @@ h1 {
 
 .card {
   margin-bottom: 15px;
-}
-
-#searchbar {
-  background-color: var(--text-color);
-  color: var(--background-color);
-  outline: none;
-  border: 0;
-  padding: 10px 20px;
-  border: 2px solid var(--border-color);
-  border-right: 0px;
-  border-radius: 10px 0px 0px 10px;
-  transition: all 0.2s ease-in-out;
-}
-
-.searchrow {
-  display: flex;
-  justify-content: center;
-  padding: 5px 10px;
-  transition: all 0.1s ease-in-out;
-}
-
-.search-submit {
-  background-color: var(--text-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  outline: none;
-  border: 2px solid var(--border-color);
-  border-radius: 0px 10px 10px 0px;
-  transition: all 0.1s ease-in-out;
-}
-
-.search-submit:hover {
-  background-color: var(--border-color);
-}
-
-.search-submit:hover .searchicon {
-  color: var(--text-color);
-}
-
-.search-submit:active {
-  background-color: var(--highlight-color);
-}
-
-.search-submit:active .searchicon {
-  color: var(--text-color);
-}
-
-.searchicon {
-  color: var(--background-color);
-  font-size: 20px;
 }
 
 /* LOADER */

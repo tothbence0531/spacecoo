@@ -77,7 +77,7 @@ if(isset($_SESSION["userEmail"]) !== true) {
                                     <label for="inputPassword5" class="form-label pt-3">Jelszó</label>
                                     <input type="password" name="loginPassword" class="form-control" placeholder="•••••••">
                                     <input type="submit" name="loginSubmit" class="btn btn-primary" value="Belépés">
-                                    <p class="noaccount">Nincs fiókod? <a href="../signup.php">Regisztrálj!</a></p>
+                                    <p class="noaccount">Nincs fiókod? <a href="signup.php">Regisztrálj!</a></p>
                                 </div>
                                 <div class="col-sm-6 text-center py-5 mt-5 mt-sm-0 right-col">
                                     <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"

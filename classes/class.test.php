@@ -7,7 +7,7 @@ class Test extends Dbh {
 
     if (!$stmt->execute()) {
       $stmt = NULL;
-      header('location: ../index.php?error=stmtfailed');
+      header('location: index.php?error=stmtfailed');
       exit();
     }
 
@@ -20,7 +20,7 @@ class Test extends Dbh {
 
     if (!$stmt->execute()) {
       $stmt = NULL;
-      header('location: ../index.php?error=stmtfailed');
+      header('location: index.php?error=stmtfailed');
       exit();
     }
 
@@ -33,7 +33,7 @@ class Test extends Dbh {
 
     if (!$stmt->execute(array($testOwner))) {
       $stmt = NULL;
-      header('location: ../index.php?error=stmtfailed');
+      header('location: index.php?error=stmtfailed');
       exit();
     }
 
@@ -49,12 +49,12 @@ class Test extends Dbh {
 
     if(!$stmt->execute(array($testOwner))) {
         $stmt = NULL;
-        header('location: ../index.php?error=stmtfailed');
+        header('location: index.php?error=stmtfailed');
         exit();
     }
 
     if($stmt->rowCount() == 0) {
-      header('location: ../index.php?error=stmtfailed');
+      header('location: index.php?error=stmtfailed');
       exit();
     }
 
@@ -62,7 +62,7 @@ class Test extends Dbh {
 
     if(!$stmt->execute(array($testName, $testMinScore, $testOwner))) {
         $stmt = NULL;
-        header('location: ../index.php?error=stmtfailed');
+        header('location: index.php?error=stmtfailed');
         exit();
     }
 
@@ -76,17 +76,32 @@ class Test extends Dbh {
 
     if (!$stmt->execute(array($testId))) {
       $stmt = NULL;
-      header('location: ../index.php?error=stmtfailed');
+      header('location: index.php?error=stmtfailed');
       exit();
     }
 
     if($stmt->rowCount() == 0) {
-      header('location: ../index.php?error=stmtfailed');
+      header('location: index.php?error=stmtfailed');
       exit();
     }
 
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $result[0];
+
+  }
+
+  public function getTestsLikeParam($input) {
+
+    $stmt = $this->connect()->prepare("SELECT * FROM tests WHERE t_name LIKE CONCAT('%', ?, '%');");
+
+    if (!$stmt->execute(array($input))) {
+      $stmt = NULL;
+      header('location: index.php?error=stmtfailed');
+      exit();
+    }
+
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
 
   }
 }

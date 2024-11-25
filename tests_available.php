@@ -58,7 +58,7 @@ include('includes/header.php');
                     <input type="hidden" name="testid" value="<?php echo $test['tid']; ?>">
                     <button type="submit" name="open-test" class="btn btn-primary">Kitöltés</button>
                     <?php if($testSubmissionController->testSubmittedByUser($_SESSION["userEmail"], $test["tid"])) { ?>
-                        <a href="#" class="btn btn-success">Eredmények</a>
+                        <a href="resultpreview.php?id=<?php echo $testSubmissionController->getSubmissionsByUserAndTestId($_SESSION["userEmail"], $test["tid"])[0]["sub_id"] ?>" class="btn btn-success">Eredmények</a>
                     <?php } ?>
                 </form>
             </div>
