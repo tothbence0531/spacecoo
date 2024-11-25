@@ -62,3 +62,27 @@ footer .border-light {
 .toast-header * {
   color: white !important;
 }
+
+.toast-header .toast-img {
+  width: 25px;
+  height: 25px;
+  margin-right: 0.5rem;
+}
+
+.online-users-toggle {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: var(--primary-accent);
+  padding: 0.8rem;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  transition: all 0.1s ease-in-out;
+  box-shadow: 0px 0px 25px 1px rgba(0, 0, 0, 0.75);
+}
+
+.online-users-toggle:hover {
+  background-color: var(--highlight-color);
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}

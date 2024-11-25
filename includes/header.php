@@ -2,6 +2,14 @@
 if(isset($_SESSION["userEmail"]) !== true) {
     session_start();
 }
+
+include_once("classes/class.dbh.php");
+include_once("classes/class.online_users.php");
+include_once("classes/class.controller.online_users.php");
+
+$onlineUsersController = new OnlineUsersController();
+$users = $onlineUsersController->getAmountOfOnlineUsers(50);
+
 ?>
 
 <!DOCTYPE html>
@@ -246,3 +254,16 @@ if(isset($_SESSION["userEmail"]) !== true) {
             </ul>
         </div>
     </div>
+
+<div class="online-users-container pb-3 hidden">
+    <h3 class="pt-4">Online felhasználók:</h3>
+    <?php foreach($users as $user) { ?>
+        <p class="online-user-name position-relative">
+            <?php echo $user["name"]; ?>
+            <span class="online-badge">
+                <span class="visually-hidden">New alerts</span>
+            </span>
+        </p>
+        
+    <?php } ?>
+</div>

@@ -196,7 +196,8 @@ body {
   align-items: center;
 }
 
-.sidebar .sidebarHeader .profpic {
+.sidebar .sidebarHeader .profpic,
+.online-users-container .profpic {
   color: #f5f5f5;
   margin: 0;
   background-color: var(--primary-accent);
@@ -357,6 +358,52 @@ h1 {
   z-index: 999999999999 !important;
 }
 
+/* TOP BAR */
+
+.online-users-container {
+  background-color: var(--highlight-color);
+  margin: -20px;
+  margin-left: -120px;
+  margin-bottom: 0;
+  padding-left: 135px;
+  overflow-x: auto;
+}
+
+.online-users-container .profpic {
+  display: flex;
+}
+
+.online-user-name {
+  display: inline-block;
+  background-color: var(--primary-accent);
+  color: #f3f3f3;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  margin-right: 5px;
+}
+
+.online-badge {
+  position: absolute;
+  top: 6px;
+  left: 98%;
+  transform: translate(-50%, -50%);
+  padding: 0.5rem;
+  background-color: #15b422;
+  border-radius: 50%;
+}
+
+.hidden {
+  height: 0;
+  visibility: hidden;
+  transition: all 0.1s ease-in-out;
+}
+
+.shown {
+  height: 20vh;
+  visibility: visible;
+  transition: all 0.1s ease-in-out;
+}
+
 /* GENERAL UI ELEMENTS */
 
 .description {
@@ -378,6 +425,10 @@ h1 {
 
 .incorrect-background-color {
   background-color: var(--incorrect-color) !important;
+}
+
+.grey-color {
+  color: rgb(148, 148, 148) !important;
 }
 
 @keyframes loader {

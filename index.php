@@ -13,6 +13,8 @@ include('includes/header.php');
 
 <div class="container-fluid">
     <h1>Főoldal</h1>
+
+    <h3 class="mt-3 grey-color">Friss tesztek:</h3>
     <div class="row">
         <?php foreach($tests as $test) { ?>
         <div class="col-sm-12 col-md-6 col-lg-4">

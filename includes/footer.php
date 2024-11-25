@@ -4,6 +4,7 @@
 
         <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
+                <img class="toast-img" src="img/error-icon.png" alt="error">
                 <strong class="me-auto">Hiba</strong>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
@@ -13,16 +14,18 @@
             $errorCode = $_GET["error"];
 
             if ($errorCode === "emptyinput") {echo 'Minden mezőt tölts ki!';}
-            if ($errorCode === "invalidemail") {echo 'Hibás emailt adtál meg!';}
-            if ($errorCode === "invalidname") {echo 'Hibás nevet adtál meg!';}
-            if ($errorCode === "passwordsdiffer") {echo 'A jelszavak különböznek!';}
-            if ($errorCode === "emailtaken") {echo 'Ez az email már foglalt!';}
-            if ($errorCode === "invalidpassword") {echo 'Hibás jelszavat adtál meg!';}
-            if ($errorCode === "stmtfailed") {echo 'Váratlan hiba történt, próbáld meg újra!';}
-            if ($errorCode === "wrongcredentials") {echo 'Rossz felhasználónév vagy jelszó!';}
-            if ($errorCode === "rolenotfound") {echo 'Nincs ilyen szerepkör!';}
-// TODO: invalidcurrentpassword
-// TODO: wrongemailinput
+            else if ($errorCode === "invalidemail") {echo 'Hibás emailt adtál meg!';}
+            else if ($errorCode === "invalidname") {echo 'Hibás nevet adtál meg!';}
+            else if ($errorCode === "passwordsdiffer") {echo 'A jelszavak különböznek!';}
+            else if ($errorCode === "emailtaken") {echo 'Ez az email már foglalt!';}
+            else if ($errorCode === "invalidpassword") {echo 'Hibás jelszavat adtál meg!';}
+            else if ($errorCode === "stmtfailed") {echo 'Hiba történt az adatbázis elérésekor!';}
+            else if ($errorCode === "wrongcredentials") {echo 'Rossz felhasználónév vagy jelszó!';}
+            else if ($errorCode === "rolenotfound") {echo 'Nincs ilyen szerepkör!';}
+            else if ($errorCode === "invalidcurrentpassword") {echo 'Helytelen régi jelszó!';}
+            else if ($errorCode === "wrongemailinput") {echo 'Létező email címet adj meg!';}
+            else if ($errorCode === "unauthorized") {echo 'Ehhez nincs jogod!';}
+            else if ($errorCode != "none") {echo 'Váratlan hiba történt, próbáld meg újra!';}
             ?>
             </div>
         </div>
@@ -70,11 +73,14 @@
         </div>
     </div>
 </footer>
+
+<i class='bx bx-group online-users-toggle'></i>
     
     <script src="js/sidebar.js"></script>
     <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.js"></script>
     <script src="js/toast.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/search.js"></script>
+    <script src="js/onlineUsers.js"></script>
 </body>
 </html>
