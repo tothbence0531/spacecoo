@@ -257,6 +257,7 @@ $users = $onlineUsersController->getAmountOfOnlineUsers(50);
 
 <div class="online-users-container pb-3 hidden">
     <h3 class="pt-4">Online felhasználók:</h3>
+    <?php if(count($users) === 0) {echo '<p class="description">Nincsenek online felhasználók</p>';} else { ?>
     <?php foreach($users as $user) { ?>
         <p class="online-user-name position-relative">
             <?php echo $user["name"]; ?>
@@ -265,5 +266,5 @@ $users = $onlineUsersController->getAmountOfOnlineUsers(50);
             </span>
         </p>
         
-    <?php } ?>
+    <?php }} ?>
 </div>

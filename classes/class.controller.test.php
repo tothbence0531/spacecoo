@@ -62,5 +62,13 @@ class TestController extends Test {
   public function getTestsForSearch($input) {
     return $this->getTestsLikeParam($input);
   }
+
+  public function getLimitedAmountOfTestsOrderedBySubmissions() {
+    return $this->getCustomAmountOfTestsOrderedBySubmissions($this->limitAmount);
+  }
+
+  public function getTestsBestPerformedOnByUsers() {
+    return $this->getBestPerformedOnTests($this->limitAmount);
+  }
  
 }

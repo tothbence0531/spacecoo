@@ -86,4 +86,54 @@ class TestSubmission extends Dbh {
 
   }
 
+  protected function getBestStudents($teacherEmail) {
+    $sql = 
+    "SELECT 
+    u.name AS student_name,
+    u.email AS student_email,
+    COUNT(ts.tid) AS tests_completed,
+    AVG(ts.score) AS avg_score,
+    MAX(ts.score) AS best_score,
+    (
+        SELECT t.t_name
+        FROM tests t
+        INNER JOIN test_submission ts_inner ON t.tid = ts_inner.tid
+        WHERE ts_inner.owner = u.email AND t.owner = ?
+        ORDER BY ts_inner.date DESC
+        LIMIT 1
+    ) AS last_test_name,
+    (
+        SELECT ts_inner.score
+        FROM tests t
+        INNER JOIN test_submission ts_inner ON t.tid = ts_inner.tid
+        WHERE ts_inner.owner = u.email AND t.owner = ?
+        ORDER BY ts_inner.date DESC
+        LIMIT 1
+    ) AS last_test_score
+    FROM 
+        users u
+    LEFT JOIN 
+        test_submission ts ON u.email = ts.owner
+    LEFT JOIN 
+        tests t ON ts.tid = t.tid
+    WHERE 
+        t.owner = ?
+    GROUP BY 
+        u.email, u.name
+    ORDER BY 
+        avg_score DESC, tests_completed DESC;";
+
+    $stmt = $this->connect()->prepare($sql);
+
+    if(!$stmt->execute(array($teacherEmail, $teacherEmail, $teacherEmail))) {
+      $stmt = NULL;
+      header("location: ../index.php?stmtfailed");
+      exit();
+    }
+
+    $testId = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $testId;
+
+  }
+
 }

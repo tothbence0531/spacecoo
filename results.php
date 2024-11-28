@@ -13,6 +13,11 @@ include('classes/class.controller.test_submission.php');
 $testSubmissionsController = TestSubmissionController::constructDefault();
 $tests = $testSubmissionsController->getTestsSubmittedByUserId($_SESSION["userEmail"]);
 
+if($_SESSION["roleId"] === 1) {
+    $bestStudents = $testSubmissionsController->getBestStudentsByTeacherEmail($_SESSION["userEmail"]);
+}
+
+
 include('includes/header.php');
 
 ?>
@@ -54,6 +59,45 @@ include('includes/header.php');
 
 <?php } ?>
 </div>
+
+<?php if($_SESSION["roleId"] === 1 && count($bestStudents) > 0) { ?>
+
+<h1 class="mt-5">Legjobb tanulók</h1>
+
+<div class="table-container">
+
+    <table>
+        <tr>
+            <th>Sorszám</th>
+            <th>Tanuló neve</th>
+            <th>Tanuló email címe</th>
+            <th>Megírt tesztek száma</th>
+            <th>Átlag pontszám</th>
+            <th>Legjobb pontszám</th>
+            <th>Utolsó kitöltött teszt</th>
+            <th>Utolsó teszten elért pontszám</th>
+        </tr>
+
+    <?php $studentCounter = 0; foreach($bestStudents as $student) { $studentCounter++;?>
+
+        <tr>
+            <td><?php echo $studentCounter ?></td>
+            <td><?php echo $student["student_name"] ?></td>
+            <td><?php echo $student["student_email"] ?></td>
+            <td><?php echo $student["tests_completed"] ?></td>
+            <td><?php echo $student["avg_score"] ?></td>
+            <td><?php echo $student["best_score"] ?></td>
+            <td><?php echo $student["last_test_name"] ?></td>
+            <td><?php echo $student["last_test_score"] ?></td>
+        </tr>
+
+    <?php } } ?>
+
+    </table>
+
+</div>
+
+
 
 
 <?php include('includes/footer.php'); ?>

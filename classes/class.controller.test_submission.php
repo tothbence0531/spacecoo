@@ -45,5 +45,9 @@ class TestSubmissionController extends TestSubmission {
   public function getTestId($sub_id) {
     return $this->getTestIdBySubmissionId($sub_id)[0]['tid'];
   }
+
+  public function getBestStudentsByTeacherEmail($teacherEmail) {
+    return $this->getBestStudents($teacherEmail);
+  }
   
 }
