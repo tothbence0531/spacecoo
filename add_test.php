@@ -114,8 +114,6 @@ include('includes/header.php');
       <input id="disabled-test-min" class="form-control" type="number" placeholder="<?php echo $test['min_score'] ?>" disabled>
     </div>
   </div>
-<!-- IIIIIIIIIIIII                                   IIIIIIIIIIIIIII -->
-<!-- VVVVVVVVVVVVV i should format and doc this asap VVVVVVVVVVVVVVV -->
 
 <h1 class="mt-4">Kérdések:</h1>
 

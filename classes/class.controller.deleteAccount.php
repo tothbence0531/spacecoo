@@ -8,11 +8,6 @@ class DeleteAccountController extends DeleteAccount {
   }
 
   public function deleteUserAccount() {
-    /*if($this->wrongEmailInput($this->email) !== false) {
-      header("location: profile.php?error=wrongemailinput");
-      exit();
-    }*/
-
     $this->unsetUser($this->email);
   }
 }
