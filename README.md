@@ -36,7 +36,7 @@ This project was developed as a semester-long assignment for the **Databases cou
 #### 1. **Clone the Repository**
 
 ```bash
-git clone https://github.com/yourusername/space-coo.git
+git clone https://github.com/tothbence0531/spacecoo.git
 cd space-coo
 ```
 
