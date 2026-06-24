@@ -25,6 +25,15 @@ This project was developed as a semester-long assignment for the **Databases cou
 - **Online User Visibility**
   - See which users are currently online.
 
+## Screenshots
+
+![Screenshot 1](documentation/readme/Screenshot_20260624_155215.png)
+![Screenshot 2](documentation/readme/add_test.png)
+![Screenshot 2](documentation/readme/results.png)
+![Screenshot 2](documentation/readme/signup.png)
+![Screenshot 2](documentation/readme/test.png)
+![Screenshot 2](documentation/readme/tests.png)
+
 ## Technologies Used
 
 - **Backend**: PHP

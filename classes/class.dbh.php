@@ -5,9 +5,9 @@ class Dbh {
     protected function connect() {
         try {
             $host = "localhost";
-            $dbname = "spacecoo";
-            $username = "root";
-            $password = "";
+            $dbname = "regi_oldal";
+            $username = "webuser";
+            $password = "webpass";
             $dbh = new PDO("mysql:host=" . $host . ";dbname=" . $dbname, $username, $password);
             return $dbh;
         } catch (PDOException $e) {
